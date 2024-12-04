@@ -2,7 +2,7 @@
 FROM maven:3.8.5-openjdk-17 as builder
 
 # Definir o diretório de trabalho
-WORKDIR /app
+WORKDIR /sistemaReserva/app
 
 # Copiar o arquivo pom.xml e a pasta src
 COPY sistemaReserva/pom.xml .
