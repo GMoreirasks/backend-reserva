@@ -1,7 +1,6 @@
 # Etapa de build
 FROM maven:3.8.5-openjdk-17 as builder
 
-
 # Definir o diretório de trabalho
 WORKDIR /app
 
@@ -19,7 +18,7 @@ FROM openjdk:17-jdk-slim
 EXPOSE 8080
 
 # Copiar o arquivo jar gerado para a imagem final
-COPY --from=build /app/target/deploy_render-1.0.0.jar app.jar
+COPY --from=builder /app/target/deploy_render-1.0.0.jar app.jar
 
 # Comando de inicialização
 ENTRYPOINT ["java", "-jar", "app.jar"]
