@@ -20,6 +20,7 @@ EXPOSE 8080
 # Copiar o arquivo jar gerado para a imagem final
 # Ajuste o caminho conforme a estrutura de pastas
 COPY --from=builder /app/sistemaReserva/target/sistemaReserva-0.0.1-SNAPSHOT.jar app.jar
-
+# Adicione essa etapa após o RUN mvn clean install
+RUN ls -al /app/target
 # Comando de inicialização
 ENTRYPOINT ["java", "-jar", "app.jar"]
