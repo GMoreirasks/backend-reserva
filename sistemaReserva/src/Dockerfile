@@ -1,10 +1,12 @@
 # Etapa de build
 FROM maven:3.8.6-openjdk-11 AS build
 
-# Copiar os arquivos do projeto
+# Definir o diretório de trabalho
 WORKDIR /app
-COPY sistemaReserva/src .
 
+# Copiar o arquivo pom.xml e a pasta src
+COPY sistemaReserva/pom.xml .
+COPY sistemaReserva/src .
 
 # Executar o build
 RUN mvn clean install -DskipTests
