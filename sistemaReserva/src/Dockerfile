@@ -3,7 +3,7 @@ FROM maven:3.8.6-openjdk-11 AS build
 
 # Copiar os arquivos do projeto
 WORKDIR /app
-COPY src .
+COPY sistemaReserva/src .
 
 
 # Executar o build
