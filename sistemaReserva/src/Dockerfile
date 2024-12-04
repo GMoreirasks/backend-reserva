@@ -3,7 +3,7 @@ FROM maven:3.8.8-openjdk-17 AS build
 
 # Copiar os arquivos do projeto
 WORKDIR /app
-COPY . .
+COPY sistemaReserva/sistemaReserva/src .
 
 # Executar o build
 RUN mvn clean install -DskipTests
