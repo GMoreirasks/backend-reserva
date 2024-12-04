@@ -1,19 +1,21 @@
-FROM ubuntu:latest AS build;
+# Etapa de build
+FROM maven:3.8.8-openjdk-17 AS build
 
-RUN apt-get update
-
-RUN apt-get install openjdk-23 -y
-
+# Copiar os arquivos do projeto
+WORKDIR /app
 COPY . .
 
-RUN apt-get install maven -y
+# Executar o build
+RUN mvn clean install -DskipTests
 
-RUN mvn clena install
+# Etapa de execução
+FROM openjdk:17-jdk-slim
 
-FROM openjdk:23-jdk
-
+# Expor a porta do serviço
 EXPOSE 8080
 
-COPY --from=build /target/deploy_render-1.0.0.jar app.jar
+# Copiar o arquivo jar gerado para a imagem final
+COPY --from=build /app/target/deploy_render-1.0.0.jar app.jar
 
+# Comando de inicialização
 ENTRYPOINT ["java", "-jar", "app.jar"]

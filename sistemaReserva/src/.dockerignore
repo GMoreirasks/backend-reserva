@@ -1,8 +1,0 @@
-target/*.jar
-*.log
-*.iml
-*.class
-.idea/
-target/
-build/
-node_modules/
