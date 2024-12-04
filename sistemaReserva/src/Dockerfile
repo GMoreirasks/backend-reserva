@@ -1,5 +1,5 @@
 # Etapa de build
-FROM maven:3.8.6-openjdk-11 AS build
+FROM maven:3.8.6-openjdk-23 AS build
 
 # Definir o diretório de trabalho
 WORKDIR /app
@@ -12,7 +12,7 @@ COPY sistemaReserva/src .
 RUN mvn clean install -DskipTests
 
 # Etapa de execução
-FROM openjdk:17-jdk-slim
+FROM openjdk:23-jdk-slim
 
 # Expor a porta do serviço
 EXPOSE 8080
