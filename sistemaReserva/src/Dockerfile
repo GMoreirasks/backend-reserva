@@ -19,7 +19,7 @@ EXPOSE 8080
 
 # Copiar o arquivo jar gerado para a imagem final
 # Verifique o nome do arquivo gerado na etapa anterior e ajuste se necessário
-COPY --from=builder /target/sistemaReserva-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=builder /app/target/sistemaReserva-0.0.1-SNAPSHOT.jar app.jar
 
 # Comando de inicialização
 ENTRYPOINT ["java", "-jar", "app.jar"]
