@@ -19,7 +19,7 @@ EXPOSE 8080
 
 # Copiar o arquivo jar gerado para a imagem final
 # Ajuste o caminho conforme a estrutura de pastas
-COPY --from=builder /sistemaReserva/app/target/sistemaReserva-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=builder /app/target/sistemaReserva-0.0.1-SNAPSHOT.jar app.jar
 # Adicione essa etapa após o RUN mvn clean install
 RUN ls -al /app/target
 # Comando de inicialização
